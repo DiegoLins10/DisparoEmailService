@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace EmailDisparoAPI.Migrations
+namespace EmailDominios.Migrations
 {
     public partial class Initial : Migration
     {

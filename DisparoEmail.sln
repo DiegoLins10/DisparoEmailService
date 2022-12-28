@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisparoEmail", "DisparoEmail\DisparoEmail.csproj", "{2B08665D-5B0B-405F-8EF7-5DEB36742CDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailDisparoAPI", "EmailDisparoAPI\EmailDisparoAPI.csproj", "{E1DB2850-13B4-4193-B257-CBA61369E09F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailDisparoAPI", "EmailDisparoAPI\EmailDisparoAPI.csproj", "{E1DB2850-13B4-4193-B257-CBA61369E09F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailDominios", "EmailDominios\EmailDominios.csproj", "{96048344-584D-4B8C-9CA8-DC51FD7BEAB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E1DB2850-13B4-4193-B257-CBA61369E09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1DB2850-13B4-4193-B257-CBA61369E09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1DB2850-13B4-4193-B257-CBA61369E09F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96048344-584D-4B8C-9CA8-DC51FD7BEAB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96048344-584D-4B8C-9CA8-DC51FD7BEAB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96048344-584D-4B8C-9CA8-DC51FD7BEAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96048344-584D-4B8C-9CA8-DC51FD7BEAB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

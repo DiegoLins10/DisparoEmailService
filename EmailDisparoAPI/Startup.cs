@@ -1,4 +1,4 @@
-using EmailDisparoAPI.Data;
+using EmailDominios.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

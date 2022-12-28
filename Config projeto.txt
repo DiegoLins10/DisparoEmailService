@@ -1,19 +1,30 @@
-.Net 5.0
 
 .Net Framework 4.7.2
+- Windows service
+- Class Library
+
+.Net 5.0
+- WebAPI
 
 
 instale:
 
-Microsoft.EntityFrameworkCore
-Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore 3.1.10
+Microsoft.EntityFrameworkCore.Tools 3.1.10
+Microsoft.EntityFrameworkCore.SqlServer 3.1.10
+Microsoft.EntityFrameworkCore.Design 3.1.10
+Ninject 3.3.4
 
+
+referencia
+
+emaildominios -> disparoEmail
 
 ---------
 
 migration
 
-1 - appsetting.json  set connection string
+1 - appsetting.json//App.config  set connection string
 
 2- set in configureservices:
             services.AddDbContext<ECommerceDbContext>(options => 
