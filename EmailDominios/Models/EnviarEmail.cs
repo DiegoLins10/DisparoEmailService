@@ -2,7 +2,7 @@
 
 namespace EmailDominios.Models
 {
-    public class EnviarEmail
+    public class EnviarEmail : Entity
     {
         [Key]
         public int IdEnviarEmail { get; set; }

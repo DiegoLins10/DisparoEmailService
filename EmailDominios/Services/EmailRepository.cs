@@ -1,47 +1,43 @@
 ﻿using EmailDominios.Data;
+using EmailDominios.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using System.Net.Mail;
-using EmailDominios.Models;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace EmailDominios.Services
 {
-    public class EmailNegocio : IEmailNegocio
+    public class EmailRepository : Repository<EnviarEmail>, IEmailRepository
     {
-        private readonly EmailContext _context;
 
-        public EmailNegocio(EmailContext context) 
-        {
-            _context = context;
-        }
-
-        public EmailNegocio()
+        public EmailRepository(EmailContext db) : base(db)
         {
         }
 
-        public void VerificandoEmailsPendentes()
+        public async Task VerificandoEmailsPendentes()
         {
-            var emails = this._context.EnviarEmail
-                .Where(d => d.Status.Equals("N", StringComparison.CurrentCultureIgnoreCase));
+            //var emails = this.Db.EnviarEmail
+            //    .Where(d => d.Status.Equals("N", StringComparison.CurrentCultureIgnoreCase));
+            
+            var emails = this.Db.EnviarEmail
+                .Where(d => d.Status.Equals("N"));
 
             var teste = emails;
 
-            if(emails.Count() > 0){
+            if (emails.Count() > 0)
+            {
                 foreach (var e in emails)
                 {
-                    ProcessarEnvioEmail(e);
+                   await ProcessarEnvioEmail(e);
                 }
 
             }
-
-            
         }
 
-        public void ProcessarEnvioEmail(EnviarEmail email)
+        public async Task ProcessarEnvioEmail(EnviarEmail email)
         {
             MailAddress origem = new MailAddress(email.EmailOrigem, email.NomeOrigem);
             MailAddress destino = new MailAddress(email.EmailDestino, email.NomeDestino);
@@ -58,15 +54,13 @@ namespace EmailDominios.Services
             smtp.Credentials = new NetworkCredential(origem.Address, "123!456");
             smtp.Send(mensagem);
 
-            AtualizarEmail(email);
+            await AtualizarEmail(email);
         }
 
-        public void AtualizarEmail(EnviarEmail email)
+        public async Task AtualizarEmail(EnviarEmail email)
         {
             email.Status = "S";
-            this._context.SaveChanges();
+            await this.Db.SaveChangesAsync();
         }
-
-      
     }
 }

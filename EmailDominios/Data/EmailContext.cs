@@ -5,11 +5,7 @@ namespace EmailDominios.Data
 {
     public class EmailContext : DbContext
     {
-        private string _connectionString;
-
-        public EmailContext(DbContextOptions options) : base(options)
-        {
-        }
+        private readonly string _connectionString;
 
         public EmailContext()
         {
@@ -20,6 +16,10 @@ namespace EmailDominios.Data
             this._connectionString = connectionString;
         }
 
-        public DbSet<EnviarEmail> EnviarEmail { get; set; }
+        public EmailContext(DbContextOptions options) : base(options)
+        {
+        }
+
+        public virtual DbSet<EnviarEmail> EnviarEmail { get; set; }
     }
 }

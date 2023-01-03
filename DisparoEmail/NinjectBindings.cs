@@ -1,4 +1,5 @@
 ﻿using EmailDominios.Data;
+using EmailDominios.Services;
 using System.Configuration;
 
 namespace DisparoEmail
@@ -18,6 +19,10 @@ namespace DisparoEmail
 
             Bind<EmailContext>().ToSelf().WithConstructorArgument("connectionString", _connectionString);
 
+            Bind<IEmailProcesso>().To<EmailProcesso>();
+            Bind<IEmailRepository>().To<EmailRepository>();
+
+            //Bind<IEmailNegocio>().To<EmailNegocio>();
         }
     }
 }
