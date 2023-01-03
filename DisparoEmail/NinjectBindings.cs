@@ -10,7 +10,7 @@ namespace DisparoEmail
 
         public void LoadConfig()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["EmailConnection"].ConnectionString;
+            _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
 
         public override void Load()

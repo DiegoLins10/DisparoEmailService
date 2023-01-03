@@ -3,14 +3,16 @@ using EmailDominios.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmailDominios.Migrations
 {
     [DbContext(typeof(EmailContext))]
-    partial class EmailContextModelSnapshot : ModelSnapshot
+    [Migration("20230103072457_att")]
+    partial class att
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

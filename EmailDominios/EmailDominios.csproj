@@ -34,6 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -128,6 +134,10 @@
     <Compile Include="Migrations\20221228045903_Initial.cs" />
     <Compile Include="Migrations\20221228045903_Initial.designer.cs">
       <DependentUpon>20221228045903_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20230103072457_att.cs" />
+    <Compile Include="Migrations\20230103072457_att.designer.cs">
+      <DependentUpon>20230103072457_att.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\EmailContextModelSnapshot.cs" />
     <Compile Include="Models\Entity.cs" />
