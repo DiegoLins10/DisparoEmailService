@@ -1,5 +1,6 @@
 ﻿using EmailDominios.Data;
 using EmailDominios.Services;
+using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
 namespace DisparoEmail
@@ -10,19 +11,18 @@ namespace DisparoEmail
 
         public void LoadConfig()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            _connectionString = ConfigurationManager.ConnectionStrings["EmailConnection"].ConnectionString;
         }
 
         public override void Load()
         {
             this.LoadConfig();
 
-            Bind<EmailContext>().ToSelf().WithConstructorArgument("connectionString", _connectionString);
+            Bind<EmailContext>().ToSelf().WithConstructorArgument("options", new DbContextOptionsBuilder<EmailContext>().UseSqlServer(_connectionString).Options);
 
             Bind<IEmailProcesso>().To<EmailProcesso>();
             Bind<IEmailRepository>().To<EmailRepository>();
 
-            //Bind<IEmailNegocio>().To<EmailNegocio>();
         }
     }
 }

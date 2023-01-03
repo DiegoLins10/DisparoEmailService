@@ -16,7 +16,7 @@ namespace DisparoEmail
 
         protected override void OnStart(string[] args)
         {
-            EventLog.WriteEntry("iniciando serviço 55", System.Diagnostics.EventLogEntryType.Warning);
+            EventLog.WriteEntry("iniciando serviço 777", System.Diagnostics.EventLogEntryType.Warning);
 
             //esse metodo aponta para o metodo verificaremail
             ThreadStart start = new ThreadStart(VerificarEmailPendente);

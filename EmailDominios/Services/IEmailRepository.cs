@@ -12,6 +12,6 @@ namespace EmailDominios.Services
     {
         Task VerificandoEmailsPendentes();
         Task ProcessarEnvioEmail(EnviarEmail email);
-        Task AtualizarEmail(EnviarEmail email);
+        void AtualizarEmail(EnviarEmail email);
     }
 }
