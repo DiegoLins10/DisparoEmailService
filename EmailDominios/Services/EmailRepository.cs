@@ -1,11 +1,8 @@
 ﻿using EmailDominios.Data;
 using EmailDominios.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace EmailDominios.Services
@@ -19,21 +16,21 @@ namespace EmailDominios.Services
 
         public async Task VerificandoEmailsPendentes()
         {
-            //var emails = this.Db.EnviarEmail
-            //    .Where(d => d.Status.Equals("N", StringComparison.CurrentCultureIgnoreCase));
-            
             var emails = this.Db.EnviarEmail
                 .Where(d => d.Status.Equals("N"));
 
-            var teste = emails;
 
             if (emails.Count() > 0)
             {
                 foreach (var e in emails)
                 {
-                   await ProcessarEnvioEmail(e);
+                    await ProcessarEnvioEmail(e);
                 }
-
+                this.Db.SaveChanges();
+            }
+            else
+            {
+                Seed();
             }
         }
 
@@ -51,16 +48,45 @@ namespace EmailDominios.Services
             smtp.EnableSsl = true;
             smtp.UseDefaultCredentials = false;
 
-            smtp.Credentials = new NetworkCredential(origem.Address, "123!456");
+            smtp.Credentials = new NetworkCredential(origem.Address, "weedwtbddkojwycz");
             smtp.Send(mensagem);
 
-            await AtualizarEmail(email);
+            AtualizarEmail(email);
         }
 
-        public async Task AtualizarEmail(EnviarEmail email)
+        public void AtualizarEmail(EnviarEmail email)
         {
             email.Status = "S";
-            await this.Db.SaveChangesAsync();
+        }
+
+
+        public void Seed()
+        {
+            EnviarEmail email = new EnviarEmail()
+            {
+                EmailOrigem = "diegofernandeslins@gmail.com",
+                EmailDestino = "diegofernandeslins@gmail.com",
+                NomeOrigem = "CasaDiego",
+                NomeDestino = "NamoCasa",
+                Assunto = "Vamos casar",
+                Mensagem = "Você irá casar comigo nos proximos anos",
+                Status = "N"
+            };
+
+            EnviarEmail email2 = new EnviarEmail()
+            {
+                EmailOrigem = "diegofernandeslins@gmail.com",
+                EmailDestino = "Dede.cecy2002@gmail.com",
+                NomeOrigem = "CasaDiego",
+                NomeDestino = "NamoCasa",
+                Assunto = "Vamos casar",
+                Mensagem = "Você irá casar comigo nos proximos anos",
+                Status = "N"
+            };
+
+            this.Db.EnviarEmail.AddRange(email, email2);
+            this.Db.SaveChanges();
+
         }
     }
 }

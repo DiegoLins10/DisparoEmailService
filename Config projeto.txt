@@ -43,3 +43,9 @@ Add-Migration Initial
 update-Database
 
 obs: tem que criar o banco antes
+
+
+
+6- SMTP
+
+OBS. Quando usar o gmail, é necessario gerar uma senha de app para usar no projeto.
