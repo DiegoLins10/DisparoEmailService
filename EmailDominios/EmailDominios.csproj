@@ -130,10 +130,9 @@
     <Compile Include="Migrations\EmailContextModelSnapshot.cs" />
     <Compile Include="Models\EnviarEmail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EmailNegocio.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
