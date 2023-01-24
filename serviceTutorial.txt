@@ -1,0 +1,1 @@
+https://learn.microsoft.com/pt-br/dotnet/framework/windows-services/walkthrough-creating-a-windows-service-application-in-the-component-designer
